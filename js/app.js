@@ -6,12 +6,16 @@ const pictures = [
   "contBcg-4",
 ];
 
+// BONUS 2
+// Variable que alberga la ruta a la carpeta de imágenes
+const imgPath = "img";
+
 // Variable de estado para saber en qué índice de foto nos encontramos
 let index = 2;
 
 // Cargo la imagen que apunta la variable de estado
 let slider = document.querySelector(".img-container");
-slider.style.backgroundImage = `url('img/${pictures[index]}.jpeg')`;
+slider.style.backgroundImage = getImageURL(index);
 
 // buena suerte
 
@@ -33,7 +37,7 @@ buttonLeft.addEventListener("click", function () {
   }
 
   // 2. Tenemos que actualizar el estilo en linea slider.style.backgroundImage 
-  slider.style.backgroundImage = `url('img/${pictures[index]}.jpeg')`;
+  slider.style.backgroundImage = getImageURL(index);
 
 });
 buttonRight.addEventListener("click", function () {
@@ -50,6 +54,12 @@ buttonRight.addEventListener("click", function () {
   console.log("Imagen que voy a cargar ahora: ", pictures[index]);
 
   // 2. Tenemos que actualizar el estilo en linea slider.style.backgroundImage 
-  slider.style.backgroundImage = `url('img/${pictures[index]}.jpeg')`;
+  slider.style.backgroundImage = getImageURL(index);
 
 });
+
+// BONUS 1
+function getImageURL(index) {
+  // La ruta a la carpeta de imágenes esta "hard-codeada", "a fuego", "quemada (latam style)"
+  return `url('${imgPath}/${pictures[index]}.jpeg')`;
+}
